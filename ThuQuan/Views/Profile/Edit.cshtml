@@ -1,0 +1,63 @@
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch Thư Quán SGU</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+<body>
+
+
+    <div class="display">
+        <div class="container">
+            <h2>Thay đổi thông tin</h2>
+            <div>
+                <!-- Ảnh đại diện -->
+                <div class="edit_info_form-group">
+                    <img id="edit_info_preview" src="img/download (3) (1).png" alt="Ảnh đại diện"
+                        class="edit_info_profile-img">
+                </div>
+                <div class="edit_info_form-group">
+                    <label for="edit_info_image">Chọn ảnh đại diện mới:</label>
+                    <input type="file" name="image" id="edit_info_image" accept="image/*"
+                        onchange="previewImage(event)">
+                </div>
+                <!-- Thông tin cá nhân -->
+                <div class="edit_info_form-group">
+                    <label for="edit_info_name">Họ và tên:</label>
+                    <input type="text" id="edit_info_name" name="name" value="Nguyễn Quốc Huy" required>
+                </div>
+                <div class="edit_info_form-group">
+                    <label for="edit_info_email">Email:</label>
+                    <input type="email" id="edit_info_email" name="email" value="ngquochuy4002@gmail.com" required>
+                </div>
+                <div class="edit_info_form-group">
+                    <label for="edit_info_sdt">SĐT:</label>
+                    <input type="tel" id="edit_info_sdt" name="sdt" value="0878955654" required>
+                </div>
+                <div class="edit_info_form-group">
+                    <label for="edit_info_password">Mật khẩu:</label>
+                    <input type="password" id="edit_info_password" name="password"
+                        placeholder="Nhập mật khẩu mới nếu muốn thay đổi">
+                </div>
+                <button id="edit_info_btn-save" onclick="handleSave()">Lưu thay đổi</button>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="./js/index.js">
+</script>
+<script src="./js/device.js"></script>

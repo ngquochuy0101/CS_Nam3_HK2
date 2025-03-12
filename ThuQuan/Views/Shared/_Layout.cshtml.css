@@ -1,0 +1,157 @@
+﻿* {
+  box-sizing: border-box;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: navy;
+}
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 150px;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  color: navy;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #f4f4f4;
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+.navbar {
+  display: flex;
+  background-color: rgb(209, 207, 244);
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.user-menu {
+  position: relative;
+  margin-left: auto;
+}
+
+.btn-info {
+  background-color: rgb(251, 251, 251);
+  color: navy;
+  text-align: left;
+}
+.btn-info:hover {
+  background-color: rgb(49, 14, 187);
+  color: white;
+}
+.logout:hover {
+  background-color: rgb(49, 14, 187);
+  color: white;
+}
+.user-btn {
+  background-color: rgb(251, 251, 251);
+  border: 1px solid navy;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #003580;
+}
+
+.btn-result {
+  display: flex;
+  margin-left: auto;
+}
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 150px;
+}
+
+.dropdown a {
+  display: block;
+  padding: 10px;
+  color: navy;
+  text-decoration: none;
+}
+
+.dropdown a:hover {
+  background-color: #f4f4f4;
+}
+
+.menu-icon {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+
+.footer {
+  background-color: #003580; /* Màu xanh đậm */
+  color: white;
+  padding: 20px 0;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-column {
+  width: 20%;
+}
+
+.footer-column h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.footer-column a,
+.footer-column p {
+  display: block;
+  font-size: 14px;
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.app-links img,
+.social-icons img {
+  width: 120px;
+  margin: 5px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px;
+  font-size: 13px;
+  background: #00215e;
+}

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Thư Quán </title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="wwwroot/css/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="wwwroot/css/_Layout.cshtml.css" asp-append-version="true" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./img/OIP-removebg-preview.png" alt="">
+            <span style="  margin-left:10px;">Thư quán SGU</span>
+            <a href="@Url.Action("Index", "Home")" style="margin-left:40px;color:navy; text-decoration: none;">Đặt
+                lịch</a>
+
+        </div>
+        <div class="user-menu">
+            <button class="user-btn" id="userBtn">QUỐC HUY ▼</button>
+            <div class="dropdown" id="dropdownMenu">
+                <button onclick="window.location.href='/profile'" class="btn-info" id="btn-info">Thông tin</button>
+                <button class="btn-info" id>Lịch sử giao dịch</button>
+                <button onclick="window.location='@Url.Action("Login", "Login")'" class="btn-info" id="btn-info">Đăng
+                    xuất</button>
+
+            </div>
+        </div>
+    </nav>
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Về chúng tôi</h4>
+                <a href="#">Thư Quán SGU</a>
+                <a href="#">Tìm Thư Quán gần nhất</a>
+            </div>
+            <div class="footer-column">
+                <h4>Liên hệ</h4>
+                <p>Hotline (1000đ/phút): 0878955654</p>
+                <a href="#">Liên hệ quảng cáo</a>
+            </div>
+            <div class="footer-column">
+                <h4>Thông tin</h4>
+                <p>Giờ phục vụ: Cả tuần, 8h30 - 20h30</p>
+                <a href="#">Chính sách bảo mật</a>
+                <a href="#">Điều kiện giao dịch chung</a>
+            </div>
+
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Công Ty TNHH Nhiều Thành Viên C# | Địa chỉ: 273 An Dương Vương, P.3, Q.5 , THPCM
+            </p>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+<script></script>
+
+</html>

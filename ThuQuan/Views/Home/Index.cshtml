@@ -1,0 +1,77 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Lịch Thư Quán SGU</title>
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <div class="display">
+        <h2 style="margin-top: 20px;">Đặt lịch</h2>
+        <div class="container">
+            <div class="step">
+                <h3>1. Chọn phòng</h3>
+                <div>
+                    <select name="" id="">
+                        <option value="0">-- Chọn phòng --</option>
+                        <option value="1A">Phòng 1</option>
+                        <option value="2">Phòng 2</option>
+                        <option value="3">Phòng 3</option>
+                        <option value="4">Phòng 3</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="step">
+                <h3>2. Chọn thiết bị thuê</h3>
+                <div style="display: grid;">
+                    <button onclick="device()"
+                        style="text-decoration: none; text-align:center; padding: 8px; border: 1px solid #ccc; color:black; background-color:rgb(193, 193, 193); border-radius: 5px;">
+                        Chọn thiết bị
+                    </button>
+
+                    <div class="services">
+                        <span>Máy chiếu : 10000đ</span>
+                        <br>
+                        <span>Phích cấm : 5000đ</span>
+                    </div>
+                    <p class="price">Tổng số tiền bạn cần thanh toán: 15000đ</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <div style="display: grid;">
+                    <h3>3. Chọn ngày, giờ</h3>
+                    <input style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="date" name="" id="">
+                    <input style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="time" name="" id="">
+
+
+
+                </div>
+            </div>
+
+            <button onclick="showAlert('Đặt lịch thành công!')" class="confirm">Đặt lịch</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+<script src="./js/index.js">
+
+</script>
+<script src="./js/device.js">
+
+</script>
