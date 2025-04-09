@@ -1,15 +1,18 @@
 @{
     Layout = null;
 }
+
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
     <meta charset="utf-8" />
     <title>Đăng ký</title>
     <style>
         /* Tổng thể body với nền xanh nhạt */
         body {
-            background-color: #f0f8ff; /* Màu xanh nhạt (AliceBlue) */
+            background-color: #f0f8ff;
+            /* Màu xanh nhạt (AliceBlue) */
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -20,8 +23,10 @@
             max-width: 400px;
             margin: 80px auto;
             padding: 20px;
-            background-color: #ffffff; /* Màu trắng */
-            border: 1px solid #cce0ff; /* Viền xanh nhạt */
+            background-color: #ffffff;
+            /* Màu trắng */
+            border: 1px solid #cce0ff;
+            /* Viền xanh nhạt */
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
@@ -29,7 +34,8 @@
         /* Tiêu đề của trang đăng ký */
         h2 {
             text-align: center;
-            color: #007acc; /* Màu xanh đậm */
+            color: #007acc;
+            /* Màu xanh đậm */
             margin-bottom: 20px;
         }
 
@@ -71,12 +77,30 @@
         input[type="submit"]:hover {
             background-color: #005fa3;
         }
+
+        .footer {
+            display: none
+        }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>Đăng ký</h2>
-        <form method="post" action="/Register">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div style="color: red; text-align:center; margin-bottom:10px;">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div style="color: green; text-align:center; margin-bottom:10px;">
+                @TempData["SuccessMessage"]
+            </div>
+        }
+
+        <form method="post" asp-controller="Login" asp-action="Register">
             <label for="username">Tên đăng nhập</label>
             <input type="text" id="username" name="username" required />
 
@@ -93,8 +117,9 @@
             <p style="text-align: center; margin-top: 10px;">
                 Đã có tài khoản? <a href="/Login" style="color: #007acc; text-decoration: none;">Đăng nhập</a>
             </p>
-            
+
         </form>
     </div>
 </body>
+
 </html>

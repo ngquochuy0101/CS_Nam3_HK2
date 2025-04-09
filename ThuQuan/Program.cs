@@ -4,60 +4,65 @@ using ThuQuan.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-// Thêm DbContext với MySQL
-// Thêm DbContext
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-     ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+// ✅ Cấu hình Session và Cache
+builder.Services.AddDistributedMemoryCache(); // Lưu session vào RAM
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian timeout
+    options.Cookie.HttpOnly = true;                 // Cookie chỉ dùng cho HTTP
+    options.Cookie.IsEssential = true;              // Bắt buộc dùng để hoạt động
 });
+
+// ✅ Add MVC + Razor views
+builder.Services.AddControllersWithViews();
+
+// ✅ Cấu hình DbContext dùng MySQL
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    )
+);
 
 var app = builder.Build();
 
-
-// Configure the HTTP request pipeline.
+// ✅ Middleware Pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
 
-app.UseSession(); // Thêm trước UseRouting()
+// app.UseHttpsRedirection();
+app.UseStaticFiles();     // Phục vụ file tĩnh (wwwroot)
 app.UseRouting();
-app.UseAuthorization();
-app.UseStaticFiles(); // Bật phục vụ tệp tĩnh từ wwwroot
-app.MapStaticAssets();
 
+app.UseSession();         // ✅ Kích hoạt Session
+app.UseAuthorization();   // ✅ Nên để sau UseSession
 
-
-
+// ✅ Routing chính
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-app.MapControllerRoute(
-    name: "login", // Tên route
-    pattern: "login", // Định dạng URL
-    defaults: new { controller = "Login", action = "Login" } // Controller và action mặc định
+    pattern: "{controller=Home}/{action=Index}/{id?}"
 );
+
+// ✅ Tuyến đường tuỳ chỉnh cho login/profile
+app.MapControllerRoute(
+    name: "login",
+    pattern: "login",
+    defaults: new { controller = "Login", action = "Login" }
+);
+
 app.MapControllerRoute(
     name: "profile",
     pattern: "profile",
-    defaults: new { controller = "Profile", action = "profile" }
+    defaults: new { controller = "Profile", action = "Profile" }
 );
+
 app.MapControllerRoute(
-    name: "profile",
-    pattern: "Edit",
+    name: "editProfile",
+    pattern: "edit",
     defaults: new { controller = "Profile", action = "Edit" }
 );
-
-
-
 
 app.Run();

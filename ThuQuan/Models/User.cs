@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+namespace ThuQuan.Models
 
-namespace LoginMVC.Models
 {
     public class User
     {

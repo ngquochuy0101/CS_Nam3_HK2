@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MyMvcApp.Data;
 using ThuQuan.Models;
+
 using System.Linq;
 namespace ThuQuan.Controllers
 {
@@ -21,7 +22,8 @@ namespace ThuQuan.Controllers
         }
         [HttpGet]
 
-        public IActionResult ForgotPassword(){
+        public IActionResult ForgotPassword()
+        {
             return View();
         }
         [HttpGet]
@@ -29,6 +31,44 @@ namespace ThuQuan.Controllers
         {
             return View();  // Ensure that a corresponding view exists (e.g., Views/Login/Register.cshtml)
         }
+        [HttpPost]
+        public IActionResult Register(string username, string email, string password, string confirmPassword)
+        {
+            if (password != confirmPassword)
+            {
+                TempData["ErrorMessage"] = "Mật khẩu không khớp.";
+                return View();
+            }
+
+            if (_context.User.Any(u => u.UserName == username))
+            {
+                TempData["ErrorMessage"] = "Tên đăng nhập đã tồn tại.";
+                return View();
+            }
+
+            var newUser = new User
+            {
+                UserName = username,
+                Email = email,
+                Password = password,
+                FullName = username,
+                DiaChi = "",
+                SoDienThoai="0123456789",
+                CreateAt = DateTime.Now,
+                UpdateAt = DateTime.Now,
+                Quyen = 0, // mặc định là người dùng thường
+                Status = 1
+
+            };
+
+            _context.User.Add(newUser);
+            _context.SaveChanges();
+
+            TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
+            return RedirectToAction("Login");
+        }
+
+
 
         // POST: Xử lý đăng nhập
         [HttpPost]
@@ -40,8 +80,8 @@ namespace ThuQuan.Controllers
             if (user != null && user.Status == 1) // Đăng nhập thành công
             {
                 // Lưu thông tin đăng nhập vào Session
-                HttpContext.Session.SetString("UserName", user.UserName);
-                HttpContext.Session.SetInt32("UserId", user.UserId);
+                TempData["UserName"] = user.UserName;
+
 
                 // Thông báo thành công
                 TempData["SuccessMessage"] = "Đăng nhập thành công!";

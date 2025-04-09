@@ -1,4 +1,3 @@
-using LoginMVC.Models;
 using Microsoft.EntityFrameworkCore;
 using ThuQuan.Models;
 

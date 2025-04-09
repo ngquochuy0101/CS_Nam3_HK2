@@ -13,10 +13,18 @@ public class HomeController : Controller
         _logger = logger;
     }
 
-    public IActionResult Index()
-    {
-        return View();
-    }
+public IActionResult Index()
+{
+    var userName = TempData["UserName"] as string;
+    
+    // Gán lại nếu bạn muốn giữ thêm 1 lần nữa (giữ lại TempData sau khi đọc)
+    TempData.Keep("UserName");
+
+    ViewBag.UserName = userName;
+
+    return View();
+}
+
 
     public IActionResult Privacy()
     {
