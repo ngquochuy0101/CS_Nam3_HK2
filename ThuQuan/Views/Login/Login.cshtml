@@ -1,124 +1,137 @@
 @{
     ViewData["Title"] = "Đăng Nhập Thư Quán SGU";
+    Layout = null;
 }
-
+<!DOCTYPE html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
+    <style>
+        /* Tổng thể body với nền xanh nhạt */
+        body {
+            background-color: #f0f8ff; /* Màu xanh nhạt (AliceBlue) */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Hộp chứa form đăng nhập */
+        .container {
+            max-width: 400px;
+            margin: 80px auto;
+            padding: 30px 40px;
+            background-color: #ffffff; /* Màu trắng */
+            border: 1px solid #cce0ff; /* Viền xanh nhạt */
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tiêu đề trang */
+        h2 {
+            text-align: center;
+            color: #007acc; /* Màu xanh đậm */
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+
+        /* Nhãn cho các input */
+        label {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Input cho tên đăng nhập và mật khẩu */
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 5px;
+            font-size: 14px;
+            border: 1px solid #cce0ff;
+            border-radius: 5px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            border-color: #007acc;
+            box-shadow: 0 0 5px rgba(0, 122, 204, 0.5);
+            outline: none;
+        }
+
+        /* Nút đăng nhập */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #007acc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 25px;
+        }
+
+        .btn:hover {
+            background-color: #005fa3;
+        }
+
+        /* Thông báo lỗi */
+        .alert-danger {
+            background-color: #fdecea;
+            color: #c0392b;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Style cho đường link */
+        .link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .link a {
+            color: #007acc;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s;
+        }
+        .link a:hover {
+            color: #005fa3;
+            text-decoration: underline;
+        }
+    </style>
 </head>
-
-<style>
-    /* Ẩn navbar và footer nếu có từ layout */
-    .navbar {
-        display: none;
-    }
-
-    .footer {
-        display: none;
-    }
-
-    /* Style cho toàn bộ body */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
-
-    /* Style cho tiêu đề */
-    h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    /* Style cho form */
-    form {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        max-width: 400px;
-    }
-
-    /* Style cho nhóm input */
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        color: #555;
-        font-weight: bold;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
-
-    .form-group input:focus {
-        outline: none;
-        border-color: #007bff;
-        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-    }
-
-    /* Style cho nút Đăng nhập */
-    .btn {
-        display: block;
-        width: 100%;
-        padding: 12px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    }
-
-    /* Style cho thông báo lỗi */
-    .alert-danger {
-        background-color: #f8d7da;
-        color: #721c24;
-        padding: 10px;
-        border-radius: 4px;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-</style>
-
 <body>
-    <h2>Đăng nhập</h2>
+    <div class="container">
+        <h2>Đăng Nhập</h2>
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert-danger">@TempData["ErrorMessage"]</div>
+        }
+        <form asp-action="Login" method="post">
+            <label for="username">Tên đăng nhập</label>
+            <input type="text" id="username" name="username" placeholder="Nhập tên đăng nhập" required />
 
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
-    }
+            <label for="password">Mật khẩu</label>
+            <input type="password" id="password" name="password" placeholder="Nhập mật khẩu" required />
 
-    <form asp-action="Login" method="post">
-        <div class="form-group">
-            <label>Tên đăng nhập</label>
-            <input type="text" name="username" class="form-control" required />
+            <button type="submit" class="btn">Đăng nhập</button>
+        </form>
+        <div class="link">
+            <a asp-action="Register">Đăng ký tài khoản</a> |
+            <a asp-action="ForgotPassword">Quên mật khẩu?</a>
         </div>
-        <div class="form-group">
-            <label>Mật khẩu</label>
-            <input type="password" name="password" class="form-control" required />
-        </div>
-        <button type="submit" class="btn btn-primary">Đăng nhập</button>
-    </form>
+    </div>
 </body>
+</html>

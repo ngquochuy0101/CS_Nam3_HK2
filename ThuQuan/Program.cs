@@ -28,9 +28,8 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
-app.UseRouting();
 app.UseSession(); // Thêm trước UseRouting()
+app.UseRouting();
 app.UseAuthorization();
 app.UseStaticFiles(); // Bật phục vụ tệp tĩnh từ wwwroot
 app.MapStaticAssets();

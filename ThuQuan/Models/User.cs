@@ -10,22 +10,22 @@ namespace LoginMVC.Models
         public int UserId { get; set; }
 
         [Column("user_name")]
-        public string UserName { get; set; }
+        public string? UserName { get; set; }
 
         [Column("password")]
-        public string Password { get; set; }
+        public string? Password { get; set; }
 
         [Column("full_name")]
-        public string FullName { get; set; }
+        public string? FullName { get; set; }
 
         [Column("email")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
         [Column("sodienthoai")]
-        public string SoDienThoai { get; set; }
+        public string? SoDienThoai { get; set; }
 
         [Column("diachi")]
-        public string DiaChi { get; set; }
+        public string? DiaChi { get; set; }
 
         [Column("create_at")]
         public DateTime CreateAt { get; set; }

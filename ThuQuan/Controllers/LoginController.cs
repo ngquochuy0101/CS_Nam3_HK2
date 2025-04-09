@@ -19,6 +19,16 @@ namespace ThuQuan.Controllers
         {
             return View();
         }
+        [HttpGet]
+
+        public IActionResult ForgotPassword(){
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Register()
+        {
+            return View();  // Ensure that a corresponding view exists (e.g., Views/Login/Register.cshtml)
+        }
 
         // POST: Xử lý đăng nhập
         [HttpPost]

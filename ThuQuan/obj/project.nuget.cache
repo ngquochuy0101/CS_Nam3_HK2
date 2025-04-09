@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "dI4xaS1Pbow=",
+  "dgSpecHash": "3KWvCSfUB8M=",
   "success": true,
-  "projectFilePath": "D:\\ThuQuan\\ThuQuan.csproj",
+  "projectFilePath": "D:\\CS_Nam3_HK2\\ThuQuan\\ThuQuan.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\quoch\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\quoch\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
