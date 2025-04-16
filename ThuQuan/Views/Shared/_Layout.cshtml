@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,12 +20,12 @@
 
         </div>
         <div class="user-menu">
-            <button class="user-btn" id="userBtn">@TempData["UserName"]</button>
+            <button class="user-btn" id="userBtn">@ViewBag.FullName</button>
             <div class="dropdown" id="dropdownMenu">
-                <button onclick="window.location.href='/profile'" class="btn-info" id="btn-info">Thông tin</button>
-                <button class="btn-info" id>Lịch sử giao dịch</button>
-                <button onclick="window.location='@Url.Action("Login", "Login")'" class="btn-info" id="btn-info">Đăng
-                    xuất</button>
+                <a asp-controller="Profile" asp-action="Profile" class="dropdown-item">Thông tin</a>
+                <a asp-controller="Transaction" asp-action="History" class="dropdown-item">Lịch sử giao dịch</a>
+                <a asp-controller="Login" asp-action="Login" class="dropdown-item">Đăng xuất</a>
+
 
             </div>
         </div>

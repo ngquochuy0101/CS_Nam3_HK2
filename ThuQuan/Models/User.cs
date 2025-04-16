@@ -5,9 +5,9 @@ namespace ThuQuan.Models
 {
     public class User
     {
-        [Key] // Đánh dấu UserId là khóa chính
-        [Column("user_id")]
-        public int UserId { get; set; }
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // Tự động tăng        [Column("user_id")]
+        public int User_Id { get; set; }
 
         [Column("user_name")]
         public string? UserName { get; set; }

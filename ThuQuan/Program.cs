@@ -4,14 +4,15 @@ using ThuQuan.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ✅ Cấu hình Session và Cache
-builder.Services.AddDistributedMemoryCache(); // Lưu session vào RAM
+// Cấu hình Session
+builder.Services.AddDistributedMemoryCache(); // Sử dụng bộ nhớ lưu trữ session
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30); // Thời gian timeout
     options.Cookie.HttpOnly = true;                 // Cookie chỉ dùng cho HTTP
-    options.Cookie.IsEssential = true;              // Bắt buộc dùng để hoạt động
+    options.Cookie.IsEssential = true;              // Cookie cần thiết
 });
+
 
 // ✅ Add MVC + Razor views
 builder.Services.AddControllersWithViews();

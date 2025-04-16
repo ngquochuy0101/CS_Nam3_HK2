@@ -79,6 +79,6 @@ function device() {
         `;
 }
 function handleSave() {
-  alert("Đã thay đổi  tin"); // Hiển thị thông báo
+  alert("Đã thay đổi thông tin"); // Hiển thị thông báo
   window.location.href = '/'; // Chuyển hướng trang
 }

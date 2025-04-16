@@ -8,28 +8,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt Lịch Thư Quán SGU</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
 
-<body>`
+<body>
 
     <div class="display">
         <h2 style="margin-top:10px">Thông tin cá nhân</h2>
         <div class="container">
-            <img id="preview" src="ImagePath" alt="Ảnh đại diện" class="profile-img" />
+            <img id="preview" src="@Url.Content("~/img/download.png")" alt="" class="profile-img" />
             <div class="info-group">
                 <label>Họ và tên:</label>
-                <span>.FullName</span>
+                <span> @ViewBag.FullName</span>
             </div>
             <div class="info-group">
                 <label>Email:</label>
-                <span>.Email</span>
+                <span> @ViewBag.Email</span>
             </div>
             <div class="info-group">
                 <label>SĐT:</label>
-                <span>.Phone</span>
+                <span> @ViewBag.SoDienThoai</span>
             </div>
-            <button onclick="window.location.href='/edit'" id="btn-edit-info">Thay đổi thông tin</button>
+
+            <form asp-action="Edit" asp-controller="Profile" method="get">
+                <button type="submit" id="btn-edit-info">Thay đổi thông tin</button>
+            </form>
         </div>
     </div>
 

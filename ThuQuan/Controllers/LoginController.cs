@@ -21,9 +21,14 @@ namespace ThuQuan.Controllers
             return View();
         }
         [HttpGet]
-
-        public IActionResult ForgotPassword()
+        public IActionResult ResetPassword()
         {
+            return View();
+        }
+
+        public IActionResult ForgotPassword(int user_Id)
+        {
+            ViewBag.UserId = user_Id;
             return View();
         }
         [HttpGet]
@@ -53,7 +58,7 @@ namespace ThuQuan.Controllers
                 Password = password,
                 FullName = username,
                 DiaChi = "",
-                SoDienThoai="0123456789",
+                SoDienThoai = "0123456789",
                 CreateAt = DateTime.Now,
                 UpdateAt = DateTime.Now,
                 Quyen = 0, // mặc định là người dùng thường
@@ -61,13 +66,13 @@ namespace ThuQuan.Controllers
 
             };
 
+
             _context.User.Add(newUser);
             _context.SaveChanges();
 
-            TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
-            return RedirectToAction("Login");
+            // TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
+            return RedirectToAction("Register"); // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
         }
-
 
 
         // POST: Xử lý đăng nhập
@@ -79,14 +84,28 @@ namespace ThuQuan.Controllers
 
             if (user != null && user.Status == 1) // Đăng nhập thành công
             {
+                ViewBag.FullName = user.FullName; // hoặc ViewData["FullName"]
+
                 // Lưu thông tin đăng nhập vào Session
-                TempData["UserName"] = user.UserName;
+                HttpContext.Session.SetString("UserName", user.UserName);
+                HttpContext.Session.SetString("FullName", user.FullName);
+                HttpContext.Session.SetInt32("UserId", user.User_Id); // Lưu ID người dùng vào Session
+                var userId = HttpContext.Session.GetInt32("UserId");
 
+                // Kiểm tra nếu không có dữ liệu Session
+                if (userId.HasValue)
+                {
+                    // Nếu đã có giá trị trong session
+                    Console.WriteLine("User đã đăng nhập: " + userId.Value);
 
+                }
+                else
+                {
+                    // Nếu chưa có, tức là chưa đăng nhập
+                    Console.WriteLine("Chưa đăng nhập");
+                }
                 // Thông báo thành công
                 TempData["SuccessMessage"] = "Đăng nhập thành công!";
-
-                // Chuyển hướng đến trang chủ
                 return RedirectToAction("Index", "Home");
             }
 
@@ -94,6 +113,59 @@ namespace ThuQuan.Controllers
             TempData["ErrorMessage"] = "Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng nhập lại.";
             return View(); // Trả về trang Login để nhập lại
         }
+
+        [HttpPost]
+        public IActionResult ForgotPassword(string username, string email, string sodienthoai, string fullname)
+        {
+            var model = new User
+            {
+                UserName = username,
+                Email = email,
+                SoDienThoai = sodienthoai,
+                FullName = fullname
+            };
+
+            // Tìm người dùng trùng khớp theo 4 tiêu chí
+            var user = _context.User.FirstOrDefault(u =>
+                u.UserName == model.UserName &&
+                u.Email == model.Email &&
+                u.SoDienThoai == model.SoDienThoai &&
+                u.FullName == model.FullName);
+
+            if (user == null)
+            {
+                TempData["ErrorMessage"] = "Không tìm thấy tài khoản trùng khớp.";
+                return View(model);
+            }
+            return RedirectToAction("ResetPassword", new { user_Id = user.User_Id });
+
+        }
+
+        [HttpPost]
+        public IActionResult ResetPassword(int user_Id, string newPassword, string confirmPassword)
+        {
+            if (newPassword != confirmPassword)
+            {
+                TempData["ErrorMessage"] = "Mật khẩu xác nhận không khớp.";
+                return View();
+            }
+
+            var user = _context.User.Find(user_Id);
+            if (user == null)
+            {
+                TempData["ErrorMessage"] = "Không tìm thấy người dùng.";
+                return View();
+            }
+
+            user.Password = newPassword;
+            user.UpdateAt = DateTime.Now;
+            _context.SaveChanges();
+
+            TempData["SuccessMessage"] = "Đặt lại mật khẩu thành công! Bạn có thể đăng nhập.";
+            return RedirectToAction("Login");
+        }
+
+
 
         // Đăng xuất
         public IActionResult Logout()

@@ -1,63 +1,97 @@
 @{
-    ViewData["Title"] = "Home Page";
-
+    ViewData["Title"] = "Thay đổi thông tin";
 }
+
 <!DOCTYPE html>
 <html lang="vi">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đặt Lịch Thư Quán SGU</title>
-    <link rel="stylesheet" href="./css/style.css">
-
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/style.css">
 </head>
+<style>
+    /* Style cho form */
+
+    /* Style cho các nhóm thông tin */
+    .info-group {
+        margin-bottom: 15px;
+    }
+
+    /* Style cho các label */
+    .info-group label {
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: inline-block;
+    }
+
+    /* Style cho các input */
+    .info-group input[type="text"],
+    .info-group input[type="email"],
+    .info-group input[type="tel"],
+    .info-group input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        transition: border-color 0.3s ease;
+    }
+
+    /* Style khi người dùng focus vào input */
+    .info-group input[type="text"]:focus,
+    .info-group input[type="email"]:focus,
+    .info-group input[type="tel"]:focus,
+    .info-group input[type="password"]:focus {
+        border-color: #007bff;
+        outline: none;
+    }
+
+    /* Style cho ảnh đại diện */
+</style>
+}
 
 <body>
+    <h2 style="margin-top: 10px">Thay đổi thông tin</h2>
+    <div class="container">
 
-
-    <div class="display">
-        <div class="container">
-            <h2>Thay đổi thông tin</h2>
-            <div>
-                <!-- Ảnh đại diện -->
-                <div class="edit_info_form-group">
-                    <img id="edit_info_preview" src="img/download (3) (1).png" alt="Ảnh đại diện"
-                        class="edit_info_profile-img">
-                </div>
-                <div class="edit_info_form-group">
-                    <label for="edit_info_image">Chọn ảnh đại diện mới:</label>
-                    <input type="file" name="image" id="edit_info_image" accept="image/*"
-                        onchange="previewImage(event)">
-                </div>
-                <!-- Thông tin cá nhân -->
-                <div class="edit_info_form-group">
-                    <label for="edit_info_name">Họ và tên:</label>
-                    <input type="text" id="edit_info_name" name="name" value="Nguyễn Quốc Huy" required>
-                </div>
-                <div class="edit_info_form-group">
-                    <label for="edit_info_email">Email:</label>
-                    <input type="email" id="edit_info_email" name="email" value="ngquochuy4002@gmail.com" required>
-                </div>
-                <div class="edit_info_form-group">
-                    <label for="edit_info_sdt">SĐT:</label>
-                    <input type="tel" id="edit_info_sdt" name="sdt" value="0878955654" required>
-                </div>
-                <div class="edit_info_form-group">
-                    <label for="edit_info_password">Mật khẩu:</label>
-                    <input type="password" id="edit_info_password" name="password"
-                        placeholder="Nhập mật khẩu mới nếu muốn thay đổi">
-                </div>
-                <button id="edit_info_btn-save" onclick="handleSave()">Lưu thay đổi</button>
-
+        <form method="post" asp-action="Edit" asp-controller="Profile">
+            <!-- Ảnh đại diện -->
+            <div class="info-group">
+                <img id="preview" src="@Url.Content("~/img/download.png")" alt="" class="profile-img" />
             </div>
-        </div>
+
+            <!-- Thông tin cá nhân -->
+            <div class="info-group">
+                <label for="edit_info_name">Họ và tên:</label>
+                <input type="text" id="edit_info_name" name="name" value="@ViewBag.FullName" required>
+            </div>
+            <div class="info-group">
+                <label for="edit_info_email">Email:</label>
+                <input type="email" id="edit_info_email" name="email" value="@ViewBag.Email" required>
+            </div>
+            <div class="info-group">
+                <label for="edit_info_sdt">SĐT:</label>
+                <input type="tel" id="edit_info_sdt" name="sdt" value="@ViewBag.SoDienThoai" required>
+            </div>
+            <div class="info-group">
+                <label for="edit_info_password">Mật khẩu:</label>
+                <input type="password" id="edit_info_password" name="password"
+                    placeholder="Nhập mật khẩu mới nếu muốn thay đổi">
+            </div>
+
+            <button type="submit" id="edit_info_btn-save">Lưu thay đổi</button>
+        </form>
     </div>
 
+    </div>
 
+    <script src="~/js/index.js"></script>
+    <script src="~/js/device.js"></script>
 </body>
 
 </html>
-<script src="./js/index.js">
-</script>
-<script src="./js/device.js"></script>
+<!--  -->

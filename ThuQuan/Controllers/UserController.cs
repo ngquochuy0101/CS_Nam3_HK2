@@ -1,11 +1,11 @@
-using Microsoft.AspNetCore.Mvc;
+// using Microsoft.AspNetCore.Mvc;
 
-public class UserController : Controller
-{
-    public IActionResult Profile()
-    {
-        // Kiểm tra người dùng đã đăng nhập chưa
+// public class UserController : Controller
+// {
+//     public IActionResult Profile()
+//     {
+//         // Kiểm tra người dùng đã đăng nhập chưa
 
-        return View();
-    }
-}
+//         return View();
+//     }
+// }
