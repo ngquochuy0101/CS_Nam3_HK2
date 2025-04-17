@@ -14,17 +14,18 @@
     <nav class="navbar">
         <div class="logo">
             <img src="./img/OIP-removebg-preview.png" alt="">
-            <span style="  margin-left:10px;">Thư quán SGU</span>
+            <a href="@Url.Action("Index", "Home")" style="margin-left:40px;color:navy; text-decoration: none;">Thư
+                quán</a>
             <a href="@Url.Action("Index", "Home")" style="margin-left:40px;color:navy; text-decoration: none;">Đặt
                 lịch</a>
 
         </div>
         <div class="user-menu">
-            <button class="user-btn" id="userBtn">@ViewBag.FullName</button>
+            <button class="user-btn" id="userBtn">@ViewData["FullName"]</button>
             <div class="dropdown" id="dropdownMenu">
                 <a asp-controller="Profile" asp-action="Profile" class="dropdown-item">Thông tin</a>
                 <a asp-controller="Transaction" asp-action="History" class="dropdown-item">Lịch sử giao dịch</a>
-                <a asp-controller="Login" asp-action="Login" class="dropdown-item">Đăng xuất</a>
+                <a asp-controller="Login" asp-action="Logout" class="dropdown-item">Đăng xuất</a>
 
 
             </div>

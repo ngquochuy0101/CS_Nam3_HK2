@@ -90,6 +90,24 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\download.png'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>ThuQuan</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ThuQuan</BasePath>
+      <RelativePath>img/May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>0jfm1zfcu2</Fingerprint>
+      <Integrity>HPXAwk8THFUe8lD7GWkvdfClSKzfTHmXyP94E7zn38Y=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\img\may-chieu-epson-ebe10-3600-ansilumen-i9j4QY.png'))">
       <SourceType>Package</SourceType>
       <SourceId>ThuQuan</SourceId>
@@ -156,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>xhsuymkrqw</Fingerprint>
-      <Integrity>xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624=</Integrity>
+      <Fingerprint>our70ycsic</Fingerprint>
+      <Integrity>wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\index.js'))</OriginalItemSpec>

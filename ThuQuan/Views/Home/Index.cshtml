@@ -1,7 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model ThuQuan.Models.ThietBiViewModel
 
+@{
+    ViewData["Title"] = "Home Page";
 }
+
 <!DOCTYPE html>
 <html lang="vi">
 
@@ -10,68 +12,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đặt Lịch Thư Quán SGU</title>
     <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .device-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
 
+        .device-item {
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            width: 30%;
+            margin-bottom: 10px;
+
+        }
+
+        .device-item img {
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 
-
 <body>
-
-
     <div class="display">
         <h2 style="margin-top: 20px;">Đặt lịch</h2>
         <div class="container">
+
+            <!-- Bước 1: Chọn phòng -->
             <div class="step">
                 <h3>1. Chọn phòng</h3>
                 <div>
-                    <select name="" id="">
-                        <option value="0">-- Chọn phòng --</option>
-                        <option value="1A">Phòng 1</option>
-                        <option value="2">Phòng 2</option>
-                        <option value="3">Phòng 3</option>
-                        <option value="4">Phòng 3</option>
+                    <select name="idPhong" id="idPhong">
+                        <option value="">-- Chọn phòng --</option>
+                        @foreach (var phong in Model.DanhSachPhong)
+                        {
+                            <option value="@phong.Id_Chongoi">
+                                Phòng @phong.Id_Phong, Vị trí @phong.vi_tri, Số lượng @phong.so_luong
+                            </option>
+                        }
                     </select>
                 </div>
             </div>
 
+            <!-- Bước 2: Chọn thiết bị -->
             <div class="step">
                 <h3>2. Chọn thiết bị thuê</h3>
                 <div style="display: grid;">
-                    <button onclick="device()"
-                        style="text-decoration: none; text-align:center; padding: 8px; border: 1px solid #ccc; color:black; background-color:rgb(193, 193, 193); border-radius: 5px;">
-                        Chọn thiết bị
-                    </button>
-
-                    <div class="services">
-                        <span>Máy chiếu : 10000đ</span>
-                        <br>
-                        <span>Phích cấm : 5000đ</span>
+                    <!-- Máy chiếu -->
+                    <h4>Máy chiếu</h4>
+                    <div class="device-list">
+                        @foreach (var mc in Model.DanhSachMayChieu)
+                        {
+                            <div class="device-item">
+                                <img src="@Url.Content(mc.Link)" alt="Máy chiếu" />
+                                <p>Giá: @mc.Gia_Tien đ</p>
+                                <input type="checkbox" name="chonMayChieu" value="@mc.Id_Seri_MayChieu"
+                                    data-gia="@mc.Gia_Tien" />
+                            </div>
+                        }
                     </div>
-                    <p class="price">Tổng số tiền bạn cần thanh toán: 15000đ</p>
+
+                    <!-- Máy tính -->
+                    <h4>Máy tính</h4>
+                    <div class="device-list">
+                        @foreach (var mt in Model.DanhSachMayTinh)
+                        {
+                            <div class="device-item">
+                                <img src="@mt.Link" alt="Máy tính" />
+                                <p>Giá: @mt.Gia_Tien đ</p>
+                                <input type="checkbox" name="chonMayTinh" value="@mt.Id_Seri_MayTinh"
+                                    data-gia="@mt.Gia_Tien" />
+                            </div>
+                        }
+                    </div>
+
+                    <p class="price">Tổng số tiền bạn cần thanh toán: 0đ</p>
                 </div>
             </div>
 
+            <!-- Bước 3: Chọn ngày, giờ -->
             <div class="step">
                 <div style="display: grid;">
                     <h3>3. Chọn ngày, giờ</h3>
-                    <input style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="date" name="" id="">
-                    <input style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="time" name="" id="">
-
-
-
+                    <input style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="date" name="ngay"
+                        id="ngay">
+                    <input style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;" type="time" name="gio"
+                        id="gio">
                 </div>
             </div>
 
-            <button onclick="showAlert('Đặt lịch thành công!')" class="confirm">Đặt lịch</button>
+            <!-- Nút xác nhận -->
+            <button onclick="checkLoginStatus()" class="confirm">Đặt lịch</button>
+            <input type="hidden" id="hiddenUserId" value="@ViewData["UserId"]" />
+
         </div>
     </div>
 
+    <script src="./js/index.js"></script>
+    <script src="./js/device.js"></script>
 
+    <script>
+        // Đảm bảo hàm checkLoginStatus() được khai báo sau khi DOM đã tải
+        function checkLoginStatus() {
+            const userId = document.getElementById("hiddenUserId").value;
+
+            if (!userId) {
+                alert("Vui lòng đăng nhập trước khi đặt lịch.");
+                window.location.href = "/Login/Login"; // Chuyển hướng đến trang đăng nhập
+            } else {
+                showAlert("Đặt lịch thành công!");
+                console.log("User ID:", userId);
+                // Ở đây bạn có thể gọi Ajax hoặc submit form...
+            }
+        }
+
+        function showAlert(message) {
+            alert(message);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            const priceText = document.querySelector(".price");
+
+            function updateTotalPrice() {
+                let total = 0;
+                checkboxes.forEach(c => {
+                    if (c.checked) {
+                        total += parseInt(c.dataset.gia);
+                    }
+                });
+                priceText.textContent = `Tổng số tiền bạn cần thanh toán: ${total.toLocaleString()}đ`;
+            }
+
+            checkboxes.forEach(cb => {
+                cb.addEventListener('click', updateTotalPrice); // 'click' là hợp lý trong trường hợp này
+            });
+
+            updateTotalPrice(); // Khởi tạo tổng giá khi trang load
+        });
+    </script>
 </body>
 
 </html>
-<script src="./js/index.js">
-
-</script>
-<script src="./js/device.js">
-
-</script>

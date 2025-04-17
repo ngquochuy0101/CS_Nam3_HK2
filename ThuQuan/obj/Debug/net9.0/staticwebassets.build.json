@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "pahfgUqmfKi0f7b5QWFgoyjCtv+x+H/dM/J2nMVcYwA=",
+  "Hash": "xwCwjDInLNW31B4Ng8CL/BA4uYo/XvfqjlVI9VtfiXA=",
   "Source": "ThuQuan",
   "BasePath": "_content/ThuQuan",
   "Mode": "Default",
@@ -752,12 +752,12 @@
       "OriginalItemSpec": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Identity": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-xhsuymkrqw.gz",
+      "Identity": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-our70ycsic.gz",
       "SourceId": "ThuQuan",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/ThuQuan",
-      "RelativePath": "js/index#[.{fingerprint=xhsuymkrqw}]?.js.gz",
+      "RelativePath": "js/index#[.{fingerprint=our70ycsic}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -766,8 +766,8 @@
       "RelatedAsset": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\js\\index.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "sjq9d2n9s4",
-      "Integrity": "WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw=",
+      "Fingerprint": "wf4blgaz1s",
+      "Integrity": "PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\js\\index.js"
@@ -1571,6 +1571,27 @@
       "OriginalItemSpec": "wwwroot\\img\\download.png"
     },
     {
+      "Identity": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\img\\May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg",
+      "SourceId": "ThuQuan",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\",
+      "BasePath": "_content/ThuQuan",
+      "RelativePath": "img/May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0jfm1zfcu2",
+      "Integrity": "HPXAwk8THFUe8lD7GWkvdfClSKzfTHmXyP94E7zn38Y=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg"
+    },
+    {
       "Identity": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\img\\may-chieu-epson-ebe10-3600-ansilumen-i9j4QY.png",
       "SourceId": "ThuQuan",
       "SourceType": "Discovered",
@@ -1648,8 +1669,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "xhsuymkrqw",
-      "Integrity": "xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624=",
+      "Fingerprint": "our70ycsic",
+      "Integrity": "wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\index.js"
@@ -3996,6 +4017,88 @@
       ]
     },
     {
+      "Route": "img/May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.0jfm1zfcu2.jpg",
+      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\img\\May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "202640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HPXAwk8THFUe8lD7GWkvdfClSKzfTHmXyP94E7zn38Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Apr 2025 07:02:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0jfm1zfcu2"
+        },
+        {
+          "Name": "label",
+          "Value": "img/May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HPXAwk8THFUe8lD7GWkvdfClSKzfTHmXyP94E7zn38Y="
+        }
+      ]
+    },
+    {
+      "Route": "img/May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg",
+      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\img\\May-Bo-Dell-OptiPlex-7010SFF-Ke-Toan-i7-3770.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "202640"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HPXAwk8THFUe8lD7GWkvdfClSKzfTHmXyP94E7zn38Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 17 Apr 2025 07:02:03 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HPXAwk8THFUe8lD7GWkvdfClSKzfTHmXyP94E7zn38Y="
+        }
+      ]
+    },
+    {
       "Route": "img/may-chieu-epson-ebe10-3600-ansilumen-i9j4QY.0czpwxg4eu.png",
       "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\img\\may-chieu-epson-ebe10-3600-ansilumen-i9j4QY.png",
       "Selectors": [],
@@ -4459,7 +4562,7 @@
     },
     {
       "Route": "js/index.js",
-      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-xhsuymkrqw.gz",
+      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-our70ycsic.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -4478,11 +4581,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw=\""
+          "Value": "\"PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:27 GMT"
+          "Value": "Wed, 16 Apr 2025 09:56:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4502,13 +4605,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624=\""
+          "Value": "W/\"wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624="
+          "Value": "sha256-wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk="
         }
       ]
     },
@@ -4523,7 +4626,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3555"
+          "Value": "3561"
         },
         {
           "Name": "Content-Type",
@@ -4531,11 +4634,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624=\""
+          "Value": "\"wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:27 GMT"
+          "Value": "Wed, 16 Apr 2025 09:56:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4545,13 +4648,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624="
+          "Value": "sha256-wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk="
         }
       ]
     },
     {
       "Route": "js/index.js.gz",
-      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-xhsuymkrqw.gz",
+      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-our70ycsic.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4568,11 +4671,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw=\""
+          "Value": "\"PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:27 GMT"
+          "Value": "Wed, 16 Apr 2025 09:56:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4590,13 +4693,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw="
+          "Value": "sha256-PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0="
         }
       ]
     },
     {
-      "Route": "js/index.xhsuymkrqw.js",
-      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-xhsuymkrqw.gz",
+      "Route": "js/index.our70ycsic.js",
+      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-our70ycsic.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
@@ -4615,11 +4718,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw=\""
+          "Value": "\"PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:27 GMT"
+          "Value": "Wed, 16 Apr 2025 09:56:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4639,13 +4742,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624=\""
+          "Value": "W/\"wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xhsuymkrqw"
+          "Value": "our70ycsic"
         },
         {
           "Name": "label",
@@ -4653,12 +4756,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624="
+          "Value": "sha256-wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk="
         }
       ]
     },
     {
-      "Route": "js/index.xhsuymkrqw.js",
+      "Route": "js/index.our70ycsic.js",
       "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\wwwroot\\js\\index.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4668,7 +4771,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "3555"
+          "Value": "3561"
         },
         {
           "Name": "Content-Type",
@@ -4676,11 +4779,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624=\""
+          "Value": "\"wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:27 GMT"
+          "Value": "Wed, 16 Apr 2025 09:56:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4690,7 +4793,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xhsuymkrqw"
+          "Value": "our70ycsic"
         },
         {
           "Name": "label",
@@ -4698,13 +4801,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xWVvbSoVhMMWmm6mqZHdPn9sq6tXbBzPRjc+ZKh5624="
+          "Value": "sha256-wBAFSZLf5E0DKGBGIz7+DwDWlQhJj6TchO8VJ9NClSk="
         }
       ]
     },
     {
-      "Route": "js/index.xhsuymkrqw.js.gz",
-      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-xhsuymkrqw.gz",
+      "Route": "js/index.our70ycsic.js.gz",
+      "AssetFile": "D:\\CS_Nam3_HK2\\ThuQuan\\obj\\Debug\\net9.0\\compressed\\hb4n769o37-our70ycsic.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4721,11 +4824,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw=\""
+          "Value": "\"PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 06:15:27 GMT"
+          "Value": "Wed, 16 Apr 2025 09:56:35 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4743,7 +4846,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "xhsuymkrqw"
+          "Value": "our70ycsic"
         },
         {
           "Name": "label",
@@ -4751,7 +4854,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-WOw/Vv7vBw+JeKf1VlJSdTPt8ZfSvBVLpR/vT3i0jTw="
+          "Value": "sha256-PMCmbHq9UXo28sjYFIKQLgl6MTbycGA8J9xXGzVdTO0="
         }
       ]
     },

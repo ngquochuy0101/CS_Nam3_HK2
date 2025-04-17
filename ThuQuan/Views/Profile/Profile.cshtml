@@ -33,13 +33,28 @@
             <form asp-action="Edit" asp-controller="Profile" method="get">
                 <button type="submit" id="btn-edit-info">Thay đổi thông tin</button>
             </form>
+            <input type="hidden" id="hiddenUserId" value="@ViewData["UserId"]" />
+
         </div>
+
     </div>
+    <script src="~/js/index.js"></script>
+    <script src="~/js/device.js"></script>
+
+
+    <script>
+        const userId = document.getElementById("hiddenUserId").value;
+        console.log("User ID:", document.getElementById("hiddenUserId").value);
+        if (!userId) {
+            window.location.href = "/Login/Login"; // Chuyển hướng đến trang đăng nhập
+
+            alert("Vui lòng đăng nhập trước khi đặt lịch.");
+        } else {
+            console.log("User ID:", userId);
+            // Ở đây bạn có thể gọi Ajax hoặc submit form...
+        }
+    </script>
 
 </body>
 
 </html>
-
-
-<script src="./js/index.js"></script>
-<script src="./js/device.js"></script>

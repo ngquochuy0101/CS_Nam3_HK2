@@ -16,7 +16,9 @@ public class ProfileController : Controller
     [HttpGet]
     public IActionResult Profile()
     {
+        var userId1 = HttpContext.Session.GetInt32("UserId");
 
+        ViewData["UserId"] = userId1;
         var userId = HttpContext.Session.GetInt32("UserId");
 
         if (userId.HasValue)
@@ -28,7 +30,8 @@ public class ProfileController : Controller
                 ViewBag.FullName = user.FullName;
                 ViewBag.Email = user.Email;
                 ViewBag.SoDienThoai = user.SoDienThoai;
-
+                var name = HttpContext.Session.GetString("FullName");
+                ViewData["FullName"] = name; // Lưu tên người dùng vào ViewData
                 return View(); // Hiển thị View Profile.cshtml
             }
 
@@ -42,6 +45,9 @@ public class ProfileController : Controller
     [HttpGet]
     public IActionResult Edit()
     {
+        var userId1 = HttpContext.Session.GetInt32("UserId");
+
+        ViewData["UserId"] = userId1;
         var userId = HttpContext.Session.GetInt32("UserId");
 
         if (userId.HasValue)
@@ -63,6 +69,9 @@ public class ProfileController : Controller
     [HttpPost]
     public IActionResult Edit(string name, string email, string sdt, string password)
     {
+        var userId1 = HttpContext.Session.GetInt32("UserId");
+
+        ViewData["UserId"] = userId1;
         var userId = HttpContext.Session.GetInt32("UserId");
 
         if (userId.HasValue)
@@ -83,9 +92,11 @@ public class ProfileController : Controller
                 }
 
                 _context.SaveChanges();
+                HttpContext.Session.SetString("FullName", name);
 
                 TempData["SuccessMessage"] = "Thông tin đã được cập nhật thành công!";
                 return View();
+
             }
 
             TempData["ErrorMessage"] = "Vui lòng đăng nhập để sửa thông tin!";

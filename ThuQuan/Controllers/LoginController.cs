@@ -95,6 +95,8 @@ namespace ThuQuan.Controllers
                 // Kiểm tra nếu không có dữ liệu Session
                 if (userId.HasValue)
                 {
+                    ViewBag.UserId = userId.Value; // Lưu UserId vào ViewBag
+
                     // Nếu đã có giá trị trong session
                     Console.WriteLine("User đã đăng nhập: " + userId.Value);
 
@@ -104,7 +106,6 @@ namespace ThuQuan.Controllers
                     // Nếu chưa có, tức là chưa đăng nhập
                     Console.WriteLine("Chưa đăng nhập");
                 }
-                // Thông báo thành công
                 TempData["SuccessMessage"] = "Đăng nhập thành công!";
                 return RedirectToAction("Index", "Home");
             }
@@ -171,6 +172,9 @@ namespace ThuQuan.Controllers
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+            ViewData.Clear();
+            Console.WriteLine("đã xóa: " + @ViewData["UserId"]); // In ra UserId để kiểm tra
+
             TempData["SuccessMessage"] = "Đăng xuất thành công!";
             return RedirectToAction("Login");
         }

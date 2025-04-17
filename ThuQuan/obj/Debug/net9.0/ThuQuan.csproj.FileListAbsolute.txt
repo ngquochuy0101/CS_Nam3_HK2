@@ -249,7 +249,6 @@ D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Microsoft.IdentityModel.Tokens.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Microsoft.SqlServer.Server.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Mono.TextTemplating.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\MySqlConnector.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Pomelo.EntityFrameworkCore.MySql.dll
@@ -261,7 +260,6 @@ D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Composition.Hosting.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Composition.Runtime.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Composition.TypedParts.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Configuration.ConfigurationManager.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Drawing.Common.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.IdentityModel.Tokens.Jwt.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Memory.Data.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\System.Runtime.Caching.dll
@@ -326,12 +324,7 @@ D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-arm\native\Microsoft.Data.S
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\scopedcss\bundle\ThuQuan.styles.css
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\scopedcss\projectbundle\ThuQuan.bundle.scp.css
@@ -339,7 +332,6 @@ D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\35m3h2m1ve-5ipweew5fc.gz
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\747cglkiu6-v1qug8f5tb.gz
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\x30muf68ul-61n19gt1b8.gz
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\xfs7bx78ur-8o6x1e6xna.gz
-D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\hb4n769o37-xhsuymkrqw.gz
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\o5cvkv2r9d-58twkqtle1.gz
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\higwn4vfjt-t1cqhe9u97.gz
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\sgg7en482g-c2jlpeoesf.gz
@@ -418,3 +410,17 @@ D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\ThuQuan.pdb
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\ThuQuan.genruntimeconfig.cache
 D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\ref\ThuQuan.dll
 D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Newtonsoft.Json.dll
+D:\CS_Nam3_HK2\ThuQuan\obj\Debug\net9.0\compressed\hb4n769o37-our70ycsic.gz
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\Google.Protobuf.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\K4os.Compression.LZ4.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\K4os.Compression.LZ4.Streams.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\K4os.Hash.xxHash.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\MySql.Data.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\ZstdSharp.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x64\native\comerr64.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x64\native\gssapi64.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x64\native\k5sprt64.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x64\native\krb5_64.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win-x64\native\krbcc64.dll
+D:\CS_Nam3_HK2\ThuQuan\bin\Debug\net9.0\runtimes\win\lib\net8.0\System.Windows.Extensions.dll
