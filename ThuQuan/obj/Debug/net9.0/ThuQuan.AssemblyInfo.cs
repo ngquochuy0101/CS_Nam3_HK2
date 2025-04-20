@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ThuQuan")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+afbcd3eb70914a3bd805480c195c4879d09d6123")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c4b4feeaacfd8d0917033f0e60245134cd2804e1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ThuQuan")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ThuQuan")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

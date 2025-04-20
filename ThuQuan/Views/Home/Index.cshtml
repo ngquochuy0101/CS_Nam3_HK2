@@ -49,7 +49,7 @@
             <div class="step">
                 <h3>1. Chọn phòng</h3>
                 <div>
-                    <select name="idPhong" id="idPhong">
+                    <select name="IdChoNgoi" id="IdChoNgoi">
                         <option value="">-- Chọn phòng --</option>
                         @foreach (var phong in Model.DanhSachPhong)
                         {
@@ -139,21 +139,21 @@
                 alert("Vui lòng đăng nhập trước khi đặt lịch.");
                 window.location.href = "/Login/Login";
             } else {
-                const idPhong = document.getElementById("idPhong").value;
+                const IdChoNgoi = document.getElementById("IdChoNgoi").value;
                 const ngay = document.getElementById("ngay").value;
                 const gio = document.getElementById("gio").value;
                 const chonMayChieu = Array.from(document.querySelectorAll('input[name="chonMayChieu"]:checked')).map(cb => cb.value);
                 const chonMayTinh = Array.from(document.querySelectorAll('input[name="chonMayTinh"]:checked')).map(cb => cb.value);
 
                 const data = {
-                    idPhong: idPhong,
+                    idChoNgoi: IdChoNgoi,
                     ngay: ngay,
                     gio: gio,
                     chonMayChieu: chonMayChieu,
                     chonMayTinh: chonMayTinh,
                     userId: userId
                 };
-                console.log(idPhong); // Kiểm tra dữ liệu trước khi gửi
+                console.log(data); // Kiểm tra dữ liệu trước khi gửi
 
                 fetch('/Home/DatLich', {
                     method: 'POST',

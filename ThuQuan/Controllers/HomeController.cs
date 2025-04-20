@@ -92,17 +92,7 @@ namespace ThuQuan.Controllers
                 {
                     conn.Open();
 
-                    // Validate id_chongoi exists in cho_ngoi
-                    var sqlCheckChongoiExist = "SELECT COUNT(*) FROM cho_ngoi WHERE id_chongoi = @idChongoi";
-                    using (var cmd = new MySqlCommand(sqlCheckChongoiExist, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@idChongoi", model.IdChongoi);
-                        int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        if (count == 0)
-                        {
-                            return Json(new { success = false, message = $"Chỗ ngồi với ID {model.IdChongoi} không tồn tại." });
-                        }
-                    }
+                   
 
                     // 1. Kiểm tra chỗ ngồi đã được đặt chưa
                     var sqlCheckChongoi = @"

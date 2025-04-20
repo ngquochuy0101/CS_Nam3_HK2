@@ -19,7 +19,7 @@ namespace ThuQuan.Models
 
     public class ChiTietPhieuDatCho
     {
-        public string IdChiTietPhieuDatCho { get; set; }
+        public int IdChiTietPhieuDatCho { get; set; }
         public string IdThietBi { get; set; }
         public int GiaTien { get; set; }
         public int IdPhieuDatCho { get; set; }
