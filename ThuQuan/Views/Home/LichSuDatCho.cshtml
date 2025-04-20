@@ -1,0 +1,131 @@
+@model List<ThuQuan.Models.PhieuDatCho>
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch sử đặt chỗ</title>
+    <link rel="stylesheet" href="~/css/style.css">
+    <style>
+        body {
+            background-color: #eceff1;
+            /* Màu nền xanh nhạt */
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            color: #007acc;
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border: 1px solid #cce0ff;
+            box-shadow: 0 4px 10px rgba(0, 122, 204, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th,
+        td {
+            border: 1px solid #cce0ff;
+            padding: 10px 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #e6f2ff;
+            /* Màu nền đầu bảng xanh nhạt */
+            color: #007acc;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9fcff;
+            /* Alternate row coloring */
+        }
+
+        tr:hover {
+            background-color: #e0f0ff;
+        }
+
+        .action {
+            text-align: center;
+        }
+
+        .action a {
+            color: #007acc;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .action a:hover {
+            color: #005fa3;
+            text-decoration: underline;
+        }
+
+        p {
+            text-align: center;
+            color: #333;
+            font-size: 16px;
+        }
+
+        .footer {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <br>
+    <h2>Lịch sử đặt chỗ</h2>
+    @if (Model.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>ID Phiếu</th>
+                    <th>Chỗ ngồi</th>
+                    <th>Thời gian đặt</th>
+                    <th>Thời gian tạo</th>
+
+                    <th>Trạng thái</th>
+                    <th>Số tiền</th>
+                    <th>Chi tiết</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var phieu in Model)
+                {
+                    <tr>
+                        <td>@phieu.IdPhieuDatCho</td>
+                        <td>@phieu.IdChongoi</td>
+                        <td>@phieu.Tgian</td>
+                        <td>@phieu.CreateAt.ToString("dd/MM/yyyy HH:mm")</td>
+
+                        <td>@(phieu.Status == 1 ? "Hoạt động" : "Hủy")</td>
+                        <td>@phieu.SoTien.ToString("N0") đ</td>
+                        <td class="action">
+                            <a href="@Url.Action("ChiTietPhieuDatCho", "Home", new { id = phieu.IdPhieuDatCho })">Xem chi
+                                tiết</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>Không có lịch sử đặt chỗ nào.</p>
+    }
+    <script src="~/js/index.js"></script>
+
+</body>
+
+</html>
