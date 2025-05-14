@@ -27,12 +27,6 @@ namespace ThuQuan.Models
         [Column("diachi")]
         public string? DiaChi { get; set; }
 
-        [Column("create_at")]
-        public DateTime CreateAt { get; set; }
-
-        [Column("update_at")]
-        public DateTime UpdateAt { get; set; }
-
         [Column("quyen")]
         public int Quyen { get; set; }
 

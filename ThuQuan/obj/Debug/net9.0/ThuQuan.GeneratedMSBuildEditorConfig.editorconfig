@@ -24,12 +24,28 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGlUaWV0UGhpZXVEYXRDaG8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/CS_Nam3_HK2/ThuQuan/Views/Home/ChiTietPhieuMuon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGlUaWV0UGhpZXVNdW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CS_Nam3_HK2/ThuQuan/Views/Home/ChiTietPhieuPhatHuDo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGlUaWV0UGhpZXVQaGF0SHVEby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CS_Nam3_HK2/ThuQuan/Views/Home/DanhSachPhieuMuon.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYW5oU2FjaFBoaWV1TXVvbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/CS_Nam3_HK2/ThuQuan/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CS_Nam3_HK2/ThuQuan/Views/Home/LichSuDatCho.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxMaWNoU3VEYXRDaG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/CS_Nam3_HK2/ThuQuan/Views/Home/PhieuPhatHuDo.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQaGlldVBoYXRIdURvLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/CS_Nam3_HK2/ThuQuan/Views/Login/ForgotPassword.cshtml]

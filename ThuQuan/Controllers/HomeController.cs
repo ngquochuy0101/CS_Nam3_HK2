@@ -7,7 +7,7 @@ namespace ThuQuan.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly string connectionString = "server=localhost;database=db_thuquan;uid=root;pwd=;";
+        private readonly string connectionString = "server=localhost;database=quanlythuquan;uid=root;pwd=;";
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
@@ -92,7 +92,7 @@ namespace ThuQuan.Controllers
                 {
                     conn.Open();
 
-                   
+
 
                     // 1. Kiểm tra chỗ ngồi đã được đặt chưa
                     var sqlCheckChongoi = @"
@@ -101,16 +101,23 @@ namespace ThuQuan.Controllers
                         WHERE id_chongoi = @idChongoi 
                         AND tgian = @tgian 
                         AND status = 1";
+                    DateTime tgianDatCho = DateTime.Parse($"{model.Ngay} {model.Gio}");
+                    if (tgianDatCho < DateTime.Now)
+                    {
+                        return Json(new { success = false, message = "Không thể đặt chỗ trong quá khứ." });
+                    }
+
                     using (var cmd = new MySqlCommand(sqlCheckChongoi, conn))
                     {
                         cmd.Parameters.AddWithValue("@idChongoi", model.IdChongoi);
-                        cmd.Parameters.AddWithValue("@tgian", DateTime.Parse($"{model.Ngay} {model.Gio}"));
+                        cmd.Parameters.AddWithValue("@tgian", tgianDatCho);
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
                         if (count > 0)
                         {
                             return Json(new { success = false, message = "Chỗ ngồi này đã được đặt tại thời gian bạn chọn." });
                         }
                     }
+
 
                     // 2. Kiểm tra số lượng máy chiếu
                     if (model.ChonMayChieu != null && model.ChonMayChieu.Any())
@@ -464,5 +471,171 @@ namespace ThuQuan.Controllers
             }
             return View(chiTietList);
         }
+
+
+        public IActionResult PhieuPhatHuDo()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            ViewData["UserId"] = userId;
+            var name = HttpContext.Session.GetString("FullName");
+            ViewData["FullName"] = name;
+            if (!userId.HasValue)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+            var phieuPhats = new List<PhieuPhatHuDo>();
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = @"SELECT pp.id_phieuphatHuDo, pp.id_phieutra, pp.solg, pp.tongtien 
+                                FROM phieuphat_hudo pp
+                                JOIN phieu_tra pt ON pt.id_phieutra = pp.id_phieutra
+                                JOIN phieu_muon pm ON pm.id_phieumuon = pt.id_phieumuon
+                                JOIN user u ON u.user_id = pm.ngmuon
+                                WHERE u.user_id = @UserId";
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+
+                        while (reader.Read())
+                        {
+                            phieuPhats.Add(new PhieuPhatHuDo
+                            {
+                                Id_PhieuPhatHuDo = reader.GetInt32("id_phieuphatHuDo"),
+                                Id_PhieuTra = reader.GetInt32("id_phieutra"),
+                                Solg = reader.GetInt32("solg"),
+                                TongTien = reader.GetDecimal("tongtien")
+                            });
+                        }
+                    }
+                }
+            }
+
+            return View(phieuPhats);
+        }
+
+        // Hiển thị chi tiết phiếu phạt
+        public IActionResult ChiTietPhieuPhatHuDo(int id)
+        {
+            var name = HttpContext.Session.GetString("FullName");
+            ViewData["FullName"] = name;
+            var chiTietList = new List<ChiTietPhieuPhatHuDo>();
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = @"SELECT id_phieuphatHuDo, id_mondo, mota, tien 
+                           FROM chitiet_phathudo 
+                           WHERE id_phieuphatHuDo = @id";
+
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            chiTietList.Add(new ChiTietPhieuPhatHuDo
+                            {
+                                Id_PhieuPhatHuDo = reader.GetInt32("id_phieuphatHuDo"),
+                                Id_MonDo = reader.GetString("id_mondo"),
+                                MoTa = reader.GetString("mota"),
+                                Tien = reader.GetDecimal("tien")
+                            });
+                        }
+                    }
+                }
+            }
+
+            ViewBag.IdPhieu = id;
+            return View(chiTietList);
+        }
+        public IActionResult DanhSachPhieuMuon()
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            ViewData["UserId"] = userId;
+            ViewData["FullName"] = HttpContext.Session.GetString("FullName");
+
+            if (!userId.HasValue)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+
+
+            var danhSach = new List<PhieuMuon>();
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = @"SELECT id_phieumuon, tgian_muon, solg, ngmuon, nvien 
+                           FROM phieu_muon 
+                           WHERE ngmuon = @UserId";
+
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@UserId", userId);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            danhSach.Add(new PhieuMuon
+                            {
+                                Id_PhieuMuon = reader.GetInt32("id_phieumuon"),
+                                Tgian_Muon = reader.GetDateTime("tgian_muon"),
+                                Solg = reader.GetInt32("solg"),
+                                NgMuon = reader.GetInt32("ngmuon"),
+                                NVien = reader.GetInt32("nvien")
+                            });
+                        }
+                    }
+                }
+            }
+
+            return View(danhSach);
+        }
+
+        // Chi tiết phiếu mượn
+        public IActionResult ChiTietPhieuMuon(int id)
+        {
+            var chiTiet = new List<ChiTietMuon>();
+
+            using (var conn = new MySqlConnection(connectionString))
+            {
+                conn.Open();
+                string sql = @"SELECT *
+                           FROM chitiet_phieumuon ctpm
+                           WHERE ctpm.id_phieumuon = @Id";
+                Console.WriteLine(id);
+
+                using (var cmd = new MySqlCommand(sql, conn))
+                {
+                    cmd.Parameters.AddWithValue("@Id", id);
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            chiTiet.Add(new ChiTietMuon
+                            {
+                                Id_MonDo = reader.GetString("id_mondo"),
+                            });
+                        }
+                    }
+                }
+            }
+
+            ViewBag.IdPhieu = id;
+            return View(chiTiet);
+        }
     }
+
+
+
 }

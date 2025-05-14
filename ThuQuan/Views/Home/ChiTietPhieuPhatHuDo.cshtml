@@ -1,0 +1,100 @@
+@model List<ThuQuan.Models.ChiTietPhieuPhatHuDo>
+@{
+    ViewBag.Title = "Chi tiết phiếu phạt";
+}
+<link rel="stylesheet" href="~/css/style.css">
+
+<h2>Chi tiết phiếu phạt @ViewBag.IdPhieu</h2>
+<style>
+    body {
+        background-color: #eceff1;
+        /* Nền xanh nhạt */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #007acc;
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border: 1px solid #cce0ff;
+        box-shadow: 0 4px 10px rgba(0, 122, 204, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        border: 1px solid #cce0ff;
+        padding: 10px 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #e6f2ff;
+        color: #007acc;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9fcff;
+    }
+
+    tr:hover {
+        background-color: #e0f0ff;
+    }
+
+    .note {
+        margin-top: 20px;
+        text-align: center;
+        color: #444;
+        font-size: 16px;
+    }
+
+    .back-link {
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+        color: #007acc;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .back-link:hover {
+        color: #005fa3;
+        text-decoration: underline;
+    }
+
+    .footer {
+        display: none;
+    }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã món đồ</th>
+            <th>Mô tả</th>
+            <th>Tiền phạt</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id_MonDo</td>
+                <td>@item.MoTa</td>
+                <td>@item.Tien.ToString("N0") VNĐ</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("PhieuPhatHuDo", "Home")" class="back-link">Quay lại danh sách</a>
+<script src="~/js/index.js"></script>

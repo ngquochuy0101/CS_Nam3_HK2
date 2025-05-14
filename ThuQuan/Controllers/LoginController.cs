@@ -57,10 +57,8 @@ namespace ThuQuan.Controllers
                 Email = email,
                 Password = password,
                 FullName = username,
-                DiaChi = "",
+                DiaChi = "HCM",
                 SoDienThoai = "0123456789",
-                CreateAt = DateTime.Now,
-                UpdateAt = DateTime.Now,
                 Quyen = 0, // mặc định là người dùng thường
                 Status = 1
 
@@ -70,7 +68,7 @@ namespace ThuQuan.Controllers
             _context.User.Add(newUser);
             _context.SaveChanges();
 
-            // TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
+            TempData["SuccessMessage"] = "Đăng ký thành công! Vui lòng đăng nhập.";
             return RedirectToAction("Register"); // Chuyển hướng đến trang đăng nhập sau khi đăng ký thành công
         }
 
@@ -149,7 +147,7 @@ namespace ThuQuan.Controllers
         {
             var user_Id = HttpContext.Session.GetInt32("UserId");
 
-            Console.WriteLine("use r_Id_re0: " + user_Id);
+            Console.WriteLine("user_Id_re0: " + user_Id);
 
             if (newPassword != confirmPassword)
             {
@@ -170,7 +168,6 @@ namespace ThuQuan.Controllers
             }
 
             // Mã hóa mật khẩu
-            user.UpdateAt = DateTime.Now;
             user.Password = newPassword; // hoặc mã hóa nếu có logic mã hóa
 
             try

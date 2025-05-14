@@ -1,0 +1,112 @@
+@model List<ThuQuan.Models.PhieuPhatHuDo>
+
+@{
+    ViewData["Title"] = "Danh sách phiếu phạt hư đồ";
+}
+<link rel="stylesheet" href="~/css/style.css">
+
+<style>
+    body {
+        background-color: #eceff1;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+        color: #007acc;
+        font-size: 26px;
+        margin-bottom: 30px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: #ffffff;
+        border: 1px solid #cce0ff;
+        box-shadow: 0 4px 10px rgba(0, 122, 204, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    th,
+    td {
+        border: 1px solid #cce0ff;
+        padding: 10px 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #e6f2ff;
+        color: #007acc;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9fcff;
+    }
+
+    tr:hover {
+        background-color: #e0f0ff;
+    }
+
+    .action {
+        text-align: center;
+    }
+
+    .action a {
+        color: #007acc;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .action a:hover {
+        color: #005fa3;
+        text-decoration: underline;
+    }
+
+    p {
+        text-align: center;
+        color: #333;
+        font-size: 16px;
+    }
+
+    .footer {
+        display: none;
+    }
+</style>
+
+<h2>Danh sách phiếu phạt hư đồ</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Mã phiếu</th>
+                <th>Mã phiếu trả</th>
+                <th>Số lượng</th>
+                <th>Tổng tiền</th>
+                <th class="action">Xem chi tiết</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id_PhieuPhatHuDo</td>
+                    <td>@item.Id_PhieuTra</td>
+                    <td>@item.Solg</td>
+                    <td>@item.TongTien.ToString("N0") đ</td>
+                    <td class="action">
+                        <a href="@Url.Action("ChiTietPhieuPhatHuDo", "Home", new { id = item.Id_PhieuPhatHuDo })">Xem</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Không có phiếu phạt nào.</p>
+}
+<script src="~/js/index.js"></script>
